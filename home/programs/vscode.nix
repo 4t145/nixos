@@ -1,6 +1,8 @@
 {
+  config,
   pkgs,
   ...
 }: {
-  programs.vscode-server.enable = true;
+  services.vscode-server.enable = true;
+  programs.vscode.enable = true;
 }
