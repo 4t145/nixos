@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-wsl, ... } @ inputs: {
@@ -20,10 +21,14 @@
           ./hosts/alpha-wsl-nixos
           ./users/${username}/nixos.nix
 
+          # Include the VSCode Server module
+          vscode-server.nixosModules.default
+
           # Include the NixOS-WSL module
           nixos-wsl.nixosModules.default
-          home-manager.nixosModules.home-manager
 
+          # Include the Home Manager module
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
