@@ -1,14 +1,9 @@
 {
-  inputs.vscode-server.url = "github:nix-community/nixos-vscode-server";
-
-  outputs = { self, nixpkgs, vscode-server }: {
-    nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
-      modules = [
-        vscode-server.nixosModules.default
-        ({ config, pkgs, ... }: {
-          services.vscode-server.enable = true;
-        })
-      ];
-    };
-  };
+  pkgs,
+  ...
+}: {
+  imports = [
+    (fetchTarball "https://github.com/nix-community/nixos-vscode-server/tarball/master")
+  ];
+  programs.vscode-server.enable = true;
 }
