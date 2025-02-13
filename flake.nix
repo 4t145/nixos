@@ -9,7 +9,14 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... } @ inputs: {
+  outputs = { 
+    self, 
+    nixpkgs, 
+    home-manager, 
+    nixos-wsl, 
+    vscode-server, 
+    ... 
+  } @ inputs: {
     nixosConfigurations = {
       alpha-wsl-nixos = let 
         username = "4t145";
