@@ -36,6 +36,12 @@
           # Include the VSCode Server module
           vscode-server.nixosModules.default
 
+          # RRust environment
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          })
+          
           # Include the NixOS-WSL module
           nixos-wsl.nixosModules.default
 

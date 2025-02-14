@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, rust-overlay, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
@@ -17,9 +17,6 @@
   networking.hostName = "alpha-wsl-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # rust environment
-  nixpkgs.overlays = [ rust-overlay.overlays.default ];
-  environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
