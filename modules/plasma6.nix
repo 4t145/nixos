@@ -5,7 +5,7 @@
   environment,
   ...
 } : {
-  service.desktopManager = {
+  services.desktopManager = {
     plasma6.enable = true;
     defaultSession = "plasma";
     sddm.enable = true;
