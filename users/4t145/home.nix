@@ -8,7 +8,6 @@
   imports = [
     ../../home/core.nix
     ../../home/programs
-    ../../home/development
   ];
 
   programs.git = {
