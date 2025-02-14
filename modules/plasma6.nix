@@ -2,6 +2,7 @@
   config, 
   pkgs,
   username,
+  environment,
   ...
 } : {
 
@@ -20,11 +21,12 @@
       };
     };
   
-    # 安装必要的包
-    environment.plasma6.excludePackages = with pkgs.kdePackages; [
-      plasma-browser-integration
-      konsole
-      oxygen
-    ];
   };
+
+  # 安装必要的包
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    konsole
+    oxygen
+  ];
 }
