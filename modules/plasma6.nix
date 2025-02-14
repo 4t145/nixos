@@ -5,18 +5,22 @@
   environment,
   ...
 } : {
-  services.desktopManager = {
-    plasma6.enable = true;
-    defaultSession = "plasma";
-    sddm.enable = true;
-    autoLogin = {
+  services = {
+    xserver = {
       enable = true;
-      user = username; 
+      xkb.layout = "us";
     };
-  };
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
+    displayManager = {
+      defaultSession = "plasma";
+      sddm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = username; 
+      };
+    };
+    desktopManager = {
+      plasma6.enable = true;
+    };
   };
 
   # 安装必要的包
