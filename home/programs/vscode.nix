@@ -3,6 +3,6 @@
   pkgs,
   ...
 }: {
-  services.vscode-server.enable = true;
+  home.packages = [pkgs.vscode];
   programs.vscode.enable = true;
 }
