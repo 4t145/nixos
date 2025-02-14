@@ -8,15 +8,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Enable Flakes
-#   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   environment.systemPackages = with pkgs; [
     git
     curl
     wget
   ];
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave

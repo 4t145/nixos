@@ -7,6 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { 
@@ -15,6 +19,7 @@
     home-manager, 
     nixos-wsl, 
     vscode-server, 
+    rust-overlay,
     ... 
   } @ inputs: {
     nixosConfigurations = {
@@ -44,6 +49,8 @@
             home-manager.extraSpecialArgs = inputs // specialArgs;
             home-manager.users.${username} = import ./users/${username}/home.nix;
           }
+
+
         ];
       };
     };

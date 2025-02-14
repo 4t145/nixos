@@ -8,15 +8,18 @@
   imports =
     [
       ../../modules/system.nix
-      ../../modules/plasma6.nix
+      # ../../modules/plasma6.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
+
   networking.hostName = "alpha-wsl-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-
+  # rust environment
+  nixpkgs.overlays = [ rust-overlay.overlays.default ];
+  environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
