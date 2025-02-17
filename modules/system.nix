@@ -130,6 +130,8 @@
     neofetch
     xfce.thunar # xfce4's file manager
     nnn # terminal file manager
+    ragenix # age
+    
   ];
 
   # Enable sound with pipewire.

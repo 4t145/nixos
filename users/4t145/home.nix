@@ -15,5 +15,5 @@
     userEmail = "u4t145@163.com";
   };
 
-
+  age.secrets."4t145".file = ../secrets/4t145.age;
 }
